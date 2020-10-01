@@ -1,0 +1,16 @@
+name: xsdata test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install xsdata
+      run: python -m pip install --upgrade xsdata
+    - name: Generate model
+      run: xsdata https://www.web3d.org/specifications/x3d-3.3.xsd --model //www.web3d.org/specifications/x3d-3.3.xsd
+    - name: Use model
+      run: python -c "from x3d import *"
