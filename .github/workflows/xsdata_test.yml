@@ -11,6 +11,6 @@ jobs:
     - name: Install xsdata
       run: python3 -m pip install --upgrade xsdata
     - name: Generate model
-      run: /home/runner/.local/bin/xsdata https://www.web3d.org/specifications/x3d-3.3.xsd --model //www.web3d.org/specifications/x3d-3.3.xsd
+      run: /home/runner/.local/bin/xsdata https://www.web3d.org/specifications/x3d-3.3.xsd --package //www.web3d.org/specifications/x3d-3.3.xsd
     - name: Use model
       run: python3 -c "from x3d import *"
