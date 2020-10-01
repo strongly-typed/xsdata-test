@@ -13,5 +13,9 @@ jobs:
       run: python3 -m pip install --upgrade -r requirements.txt
     - name: Generate model
       run: /home/runner/.local/bin/xsdata https://www.web3d.org/specifications/x3d-3.3.xsd --package x3d
+    - name: Verify model
+      run: |
+        apt update && apt install -y python3-mypy
+        python3 -m mypy x3d
     - name: Use model
       run: python3 -c "from x3d import *"

@@ -11,4 +11,4 @@ requests==2.24.0
 toposort==1.5
 untokenize==0.1.1
 urllib3==1.25.10
-xsdata==20.9
+git+https://github.com/tefra/xsdata.git
