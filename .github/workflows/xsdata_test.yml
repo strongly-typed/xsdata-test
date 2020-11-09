@@ -11,11 +11,19 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install xsdata
       run: python3 -m pip install --upgrade -r requirements.txt
+    - name: Download xsd
+      run: curl -o btlx_11.xsd https://www.design2machine.com/btlx/btlx_11.xsd
     - name: Generate model
-      run: /home/runner/.local/bin/xsdata https://www.web3d.org/specifications/x3d-3.3.xsd --package x3d
+      run: /home/runner/.local/bin/xsdata btlx_11.xsd --package btlx
     - name: Verify model
       run: |
         sudo apt update && sudo apt install -y python3-mypy
-        python3 -m mypy x3d
+        python3 -m mypy btlx
     - name: Use model
-      run: python3 -c "from x3d import *"
+      run: python3 -c "from btlx.www.design2machine.com.btlx import btlx_11"
+    - name: Download test file and upgrade to 1.1
+      run: |
+        curl -o whole-log-wall.btlx https://www.design2machine.com/example-btlx/iframetext/prefabrication/whole-log-wall.btlx
+        sed -i 's/Version="1.0"/Version="1.1"/g' whole-log-wall.btlx
+    - name: Parse demo file
+      run: python3 main.py
