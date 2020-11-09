@@ -21,8 +21,8 @@ if validate:
     xmlschema.assertValid(tree)
 
 # Use xsd
-from btlx import btlx_11
+from btlx.btlx_11 import Btlx
 fpath = Path(fname)
-btlx = parser.from_path(fpath, btlx_11)
+btlx = parser.from_path(fpath, Btlx)
 
 print(btlx.project.name)
