@@ -5,7 +5,7 @@ from xsdata.formats.dataclass.parsers.config import ParserConfig
 config = ParserConfig(fail_on_unknown_properties=True)
 parser = XmlParser(config=config)
 
-from btlx.www.design2machine.com.btlx import btlx_11
+from btlx import btlx_11
 
 fname = 'whole-log-wall.btlx'
 
