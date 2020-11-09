@@ -1,0 +1,8 @@
+.venv
+.vscode
+.mypy_cache
+btlx
+
+# Downloaded files
+btlx_11.xsd
+whole-log-wall.btlx
