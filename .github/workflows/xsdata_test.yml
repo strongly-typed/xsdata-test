@@ -21,9 +21,5 @@ jobs:
         python3 -m mypy btlx
     - name: Use model
       run: python3 -c "from btlx import btlx_11"
-    - name: Download test file and upgrade to 1.1
-      run: |
-        curl -o whole-log-wall.btlx https://www.design2machine.com/example-btlx/iframetext/prefabrication/whole-log-wall.btlx
-        sed -i 's/Version="1.0"/Version="1.1"/g' whole-log-wall.btlx
-    - name: Parse demo file
+    - name: Run through test files
       run: python3 main.py
